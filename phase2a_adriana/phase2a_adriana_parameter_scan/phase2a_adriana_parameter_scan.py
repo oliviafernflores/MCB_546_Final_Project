@@ -164,11 +164,9 @@ df_results = pd.DataFrame(results)
 df_results.to_csv("alpha_w_scan_summary_metrics.csv", index=False)
 print("Saved alpha_w_scan_summary_metrics.csv")
 
-# Combined plots - All cells
 for Q in Q_values:
     fig_all, axes = plt.subplots(3, 1, figsize=(12, 18), sharex=True)
     
-    # Loop through each subplot (Q value)
     for ax, q_val in zip(axes, Q_values):
         for (a_w, q_key), (t, mat) in combined_traces.items():
             if q_key == q_val:
@@ -179,56 +177,44 @@ for Q in Q_values:
         ax.set_ylabel("mRNA bi")
         ax.grid(True)
     
-    # Set x-axis label for the last subplot
     axes[-1].set_xlabel("Time (s)")
     fig_all.suptitle("All Cells: mRNA bi per alpha_w", fontsize=16)
     fig_all.tight_layout(rect=[0, 0, 1, 0.96])
 
-    # Create the legend with consistent color coding
     legend_lines = [Line2D([0], [0], color=colors[i], lw=2) for i in range(len(alpha_w_values))]
     legend_labels = [f"αw={a:.1f}" for a in alpha_w_values]
     fig_all.legend(legend_lines, legend_labels, loc='upper right')
 
-    # Save the figure once
     fig_all.savefig(f"combined_all_cells.png")
     plt.close(fig_all)
 
-# Combined plots - Average curve per alpha_w, separated by Q value
 fig_avg_all = plt.figure(figsize=(12, 18))
 
-# Loop through each Q value and create a subplot for each
 for i, Q in enumerate(Q_values):
     ax_avg = fig_avg_all.add_subplot(3, 1, i + 1)
     
-    # Loop through each alpha_w value and plot the average curve
     for alpha_w_val, color in zip(alpha_w_values, colors):
         avg_trace = np.mean([average_traces[(alpha_w_val, Q)] for Q in Q_values], axis=0)
         ax_avg.plot(time, avg_trace, label=f"αw={alpha_w_val:.1f}", color=color)
 
-    # Set titles, labels, and grid
     ax_avg.set_title(f"Average mRNA bi per alpha_w | Q = {Q}")
     ax_avg.set_xlabel("Time (s)")
     ax_avg.set_ylabel("Average mRNA bi")
     ax_avg.grid(True)
 
-# Add legend after all subplots to ensure consistency
 fig_avg_all.legend(legend_lines, legend_labels, loc='upper right')
 
-# Adjust layout to avoid overlap and save the figure
 fig_avg_all.tight_layout()
 fig_avg_all.savefig("combined_avg_curve_all_Qs.png")
 plt.close(fig_avg_all)
 
 
-# Combined plots - All cells (Zoomed in to first 50 seconds)
 for Q in Q_values:
     fig_all, axes = plt.subplots(3, 1, figsize=(12, 18), sharex=True)
     
-    # Loop through each subplot (Q value)
     for ax, q_val in zip(axes, Q_values):
         for (a_w, q_key), (t, mat) in combined_traces.items():
             if q_key == q_val:
-                # Mask to only consider the first 50 seconds
                 mask = t <= 50
                 t_zoomed = t[mask]
                 mat_zoomed = mat[mask, :]
@@ -240,16 +226,13 @@ for Q in Q_values:
         ax.set_ylabel("mRNA bi")
         ax.grid(True)
     
-    # Set x-axis label for the last subplot
     axes[-1].set_xlabel("Time (s)")
     fig_all.suptitle("All Cells (Zoomed 0-50s): mRNA bi per alpha_w", fontsize=16)
     fig_all.tight_layout(rect=[0, 0, 1, 0.96])
 
-    # Create the legend with consistent color coding
     legend_lines = [Line2D([0], [0], color=colors[i], lw=2) for i in range(len(alpha_w_values))]
     legend_labels = [f"αw={a:.1f}" for a in alpha_w_values]
     fig_all.legend(legend_lines, legend_labels, loc='upper right')
 
-    # Save the figure once
     fig_all.savefig(f"combined_all_cells_zoomed_0_50s.png")
     plt.close(fig_all)
