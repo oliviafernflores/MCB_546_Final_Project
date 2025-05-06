@@ -152,7 +152,7 @@ def simulate_and_plot(Q, ax_full, ax_zoom, color):
     for i in range(N):
         ax_full.plot(time, bi_matrix[:, i], color = color)
     ax_full.set_title(
-        f"Q = {Q} | Sync = {sync_full:.4f} | Amp = {amp_full*2:.2f} | Period = {period_full:.2f}")
+        f"Q = {Q}")
     ax_full.set_ylabel("mRNA bi")
     ax_full.grid(True)
 
@@ -165,7 +165,7 @@ def simulate_and_plot(Q, ax_full, ax_zoom, color):
     for i in range(N):
         ax_zoom.plot(time_zoom, bi_matrix_zoom[:, i], color = color)
     ax_zoom.set_title(
-        f"Q = {Q} | Sync = {sync_zoom:.4f} | Amp = {amp_zoom*2:.2f} | Period = {period_zoom*2:.2f}")
+        f"Q = {Q}")
     ax_zoom.set_ylabel("mRNA bi")
     ax_zoom.set_xlim(0, 50)
     ax_zoom.grid(True)
@@ -223,8 +223,8 @@ for param in alpha_params:
         axes_full[-1].set_xlabel("Time (s)")
         axes_zoom[-1].set_xlabel("Time (s)")
         title_suffix = f"{param}_{alpha_value:.2f}"
-        fig_full.suptitle(f"{title_suffix} - Group Model", fontsize=16)
-        fig_zoom.suptitle(f"{title_suffix} - Group Model", fontsize=16)
+        # fig_full.suptitle(f"{title_suffix} - Group Model", fontsize=16)
+        # fig_zoom.suptitle(f"{title_suffix} - Group Model", fontsize=16)
         fig_full.tight_layout(rect=[0, 0, 1, 0.97])
         fig_zoom.tight_layout(rect=[0, 0, 1, 0.97])
 
