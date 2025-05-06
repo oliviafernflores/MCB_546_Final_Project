@@ -1,0 +1,165 @@
+\documentclass[fleqn]{article} % <-- Left-align all math
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+\setlength{\parindent}{0pt} % No paragraph indentation
+
+\begin{document}
+\section*{Phase1 - Paper Model - Equations}
+
+\subsection*{mRNA Equations}
+\begin{align*}
+\frac{da_i}{dt} &= \frac{\alpha}{1 + C_i^n} - k_{deg} \cdot a_i \\
+\frac{db_i}{dt} &= \frac{\alpha}{1 + A_i^n} - k_{deg} \cdot b_i \\
+\frac{dc_i}{dt} &= \frac{\alpha}{1 + B_i^n} + \frac{\kappa \cdot S_i}{1 + S_i} - k_{deg} \cdot c_i \\
+\end{align*}
+
+\subsection*{Protein Equations}
+\begin{align*}
+\frac{dA_i}{dt} &= \beta_i \cdot (a_i - A_i) \\
+\frac{dB_i}{dt} &= \beta_i \cdot (b_i - B_i) \\
+\frac{dC_i}{dt} &= \beta_i \cdot (c_i - C_i) \\
+\end{align*}
+
+\subsection*{Autoinducer Equations}
+\begin{align*}
+\frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_e - S_i) \\
+\frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
+\end{align*}
+
+\pagebreak
+
+\section*{Phase2a - Adriana - Node W - Equations}
+
+\subsection*{mRNA Equations}
+\begin{align*}
+\frac{da_i}{dt} &= \frac{\alpha}{1 + C_i^n} +  \frac{\alpha \cdot W_i^n}{1 + W_i^n} - k_{deg} \cdot a_i \\
+\frac{db_i}{dt} &= \frac{\alpha}{1 + A_i^n} - k_{deg} \cdot b_i \\
+\frac{dc_i}{dt} &= \frac{\alpha}{1 + B_i^n} + \frac{\kappa \cdot S_i}{1 + S_i} - k_{deg} \cdot c_i \\
+\frac{dw_i}{dt} &= \frac{\alpha_w}{1 + A_i^n} - k_{deg} \cdot w_i \\
+\end{align*}
+
+\subsection*{Protein Equations}
+\begin{align*}
+\frac{dA_i}{dt} &= \beta_i \cdot (a_i - A_i) \\
+\frac{dB_i}{dt} &= \beta_i \cdot (b_i - B_i) \\
+\frac{dC_i}{dt} &= \beta_i \cdot (c_i - C_i) \\
+\frac{dW_i}{dt} &= \beta_i \cdot (w_i - W_i) \\
+\end{align*}
+
+\subsection*{Autoinducer Equations}
+\begin{align*}
+\frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_e - S_i) \\
+\frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
+\end{align*}
+
+\pagebreak
+
+\section*{Phase2a - Sydney - Node x - Equations}
+\subsection*{mRNA Equations}
+\begin{align*}
+\frac{da_i}{dt} &= \frac{\alpha}{1 + C_i^n} - k_{deg} \cdot a_i \\
+\frac{db_i}{dt} &= \frac{\alpha}{1 + A_i^n} + \frac{\alpha \cdot X_i^n}{1 + X_i^n} - k_{deg} \cdot b_i \\
+\frac{dc_i}{dt} &= \frac{\alpha}{1 + B_i^n} + \frac{\kappa \cdot S_i}{1 + S_i} - k_{deg} \cdot c_i \\
+\frac{dx_i}{dt} &= \frac{\alpha_x}{1 + A_i^n} - k_{deg} \cdot x_i \\
+\end{align*}
+
+\subsection*{Protein Equations}
+\begin{align*}
+\frac{dA_i}{dt} &= \beta_i \cdot (a_i - A_i) \\
+\frac{dB_i}{dt} &= \beta_i \cdot (b_i - B_i) \\
+\frac{dC_i}{dt} &= \beta_i \cdot (c_i - C_i) \\
+\frac{dX_i}{dt} &= \beta_i \cdot (x_i - X_i) \\
+\end{align*}
+
+\subsection*{Autoinducer Equations}
+\begin{align*}
+\frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_e - S_i) \\
+\frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
+\end{align*}
+
+\pagebreak
+
+\section*{Phase2a - Sean - Node Y - Equations}
+
+\subsection*{mRNA Equations}
+\begin{align*}
+\frac{da_i}{dt} &= \frac{\alpha}{1 + C_i^n} - k_{deg} \cdot a_i \\
+\frac{db_i}{dt} &= \frac{\alpha}{1 + A_i^n} - k_{deg} \cdot b_i \\
+\frac{dc_i}{dt} &= \frac{\alpha}{(1 + B_i^n)(1 + Y_i^n)} + \frac{\kappa \cdot S_i}{1 + S_i} - k_{deg} \cdot c_i \\
+\frac{dy_i}{dt} &= \frac{\alpha_y}{1 + B_i^n} - k_{deg} \cdot y_i \\
+\end{align*}
+
+\subsection*{Protein Equations}
+\begin{align*}
+\frac{dA_i}{dt} &= \beta_i \cdot (a_i - A_i) \\
+\frac{dB_i}{dt} &= \beta_i \cdot (b_i - B_i) \\
+\frac{dC_i}{dt} &= \beta_i \cdot (c_i - C_i) \\
+\frac{dY_i}{dt} &= \beta_i \cdot (y_i - Y_i) \\
+\end{align*}
+
+\subsection*{Autoinducer Equations}
+\begin{align*}
+\frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_e - S_i) \\
+\frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
+\end{align*}
+
+\pagebreak
+
+\section*{Phase2a - Olivia - Node Z - Equations}
+
+\subsection*{mRNA Equations}
+\begin{align*}
+\frac{da_i}{dt} &= \frac{\alpha}{1 + C_i^n} - k_{deg} \cdot a_i \\
+\frac{db_i}{dt} &= \frac{\alpha}{(1 + A_i^n)(1 + Z_i^n)} - k_{deg} \cdot b_i \\
+\frac{dc_i}{dt} &= \frac{\alpha}{1 + B_i^n} + \frac{\kappa \cdot S_i}{1 + S_i} - k_{deg} \cdot c_i \\
+\frac{dz_i}{dt} &= \frac{\alpha_z}{1 + B_i^n} - k_{deg} \cdot z_i \\
+\end{align*}
+
+\subsection*{Protein Equations}
+\begin{align*}
+\frac{dA_i}{dt} &= \beta_i \cdot (a_i - A_i) \\
+\frac{dB_i}{dt} &= \beta_i \cdot (b_i - B_i) \\
+\frac{dC_i}{dt} &= \beta_i \cdot (c_i - C_i) \\
+\frac{dZ_i}{dt} &= \beta_i \cdot (z_i - Z_i) \\
+\end{align*}
+
+\subsection*{Autoinducer Equations}
+\begin{align*}
+\frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_e - S_i) \\
+\frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
+\end{align*}
+
+\pagebreak
+
+\section*{Phase2b - Group Model - Equations}
+
+\subsection*{mRNA Equations}
+\begin{align*}
+\frac{da_i}{dt} &= \frac{\alpha}{1 + C_i^n} +  \frac{\alpha \cdot W_i^n}{1 + W_i^n} - k_{deg} \cdot a_i \\
+\frac{db_i}{dt} &= \frac{\alpha}{(1 + A_i^n)(1 + Z_i^n)} + \frac{\alpha \cdot X_i^n}{1 + X_i^n} - k_{deg} \cdot b_i \\
+\frac{dc_i}{dt} &= \frac{\alpha}{(1 + B_i^n)(1 + Y_i^n)} + \frac{\kappa \cdot S_i}{1 + S_i} - k_{deg} \cdot c_i \\
+\frac{dw_i}{dt} &= \frac{\alpha_w}{1 + A_i^n} - k_{deg} \cdot w_i \\
+\frac{dx_i}{dt} &= \frac{\alpha_x}{1 + A_i^n} - k_{deg} \cdot x_i \\
+\frac{dy_i}{dt} &= \frac{\alpha_y}{1 + B_i^n} - k_{deg} \cdot y_i \\
+\frac{dz_i}{dt} &= \frac{\alpha_z}{1 + B_i^n} - k_{deg} \cdot z_i \\
+\end{align*}
+
+\subsection*{Protein Equations}
+\begin{align*}
+\frac{dA_i}{dt} &= \beta_i \cdot (a_i - A_i) \\
+\frac{dB_i}{dt} &= \beta_i \cdot (b_i - B_i) \\
+\frac{dC_i}{dt} &= \beta_i \cdot (c_i - C_i) \\
+\frac{dW_i}{dt} &= \beta_i \cdot (w_i - W_i) \\
+\frac{dX_i}{dt} &= \beta_i \cdot (x_i - X_i) \\
+\frac{dY_i}{dt} &= \beta_i \cdot (y_i - Y_i) \\
+\frac{dZ_i}{dt} &= \beta_i \cdot (z_i - Z_i) \\
+\end{align*}
+
+\subsection*{Autoinducer Equations}
+\begin{align*}
+\frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_e - S_i) \\
+\frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
+\end{align*}
+
+\end{document}
