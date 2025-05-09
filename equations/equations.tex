@@ -5,6 +5,55 @@
 \setlength{\parindent}{0pt}
 
 \begin{document}
+\section*{Variables/Parameters - Descriptions and Values}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|l|c|}
+\hline
+\textbf{} & \textbf{Description} & \textbf{Value} \\
+\hline
+$a_i$ & mRNA A Concentration in Cell \textit{i} & 0 - 0.1* \\
+$b_i$ & mRNA B Concentration in Cell \textit{i} & 0 - 0.1* \\
+$c_i$ & mRNA C Concentration in Cell \textit{i} & 0 - 0.1* \\
+$w_i$ & mRNA W Concentration in Cell \textit{i} & 0 - 0.1* \\
+$x_i$ & mRNA X Concentration in Cell \textit{i} & 0 - 0.1* \\
+$y_i$ & mRNA Y Concentration in Cell \textit{i} & 0 - 0.1* \\
+$z_i$ & mRNA Z Concentration in Cell \textit{i} & 0 - 0.1* \\
+$A_i$ & Protein A Concentration in Cell \textit{i} & 0 - 0.1* \\
+$B_i$ & Protein B Concentration in Cell \textit{i} & 0 - 0.1* \\
+$C_i$ & Protein C Concentration in Cell \textit{i} & 0 - 0.1* \\
+$W_i$ & Protein W Concentration in Cell \textit{i} & 0 - 0.1* \\
+$X_i$ & Protein X Concentration in Cell \textit{i} & 0 - 0.1* \\
+$Y_i$ & Protein Y Concentration in Cell \textit{i} & 0 - 0.1* \\
+$Z_i$ & Protein Z Concentration in Cell \textit{i} & 0 - 0.1* \\
+$S_i$ & Intracellular Autoinducer Concentration in Cell \textit{i} & 0 - 0.1* \\
+$S_e$ & Extracellular Autoinducer Concentration & 0 - 0.1* \\
+$\alpha$ & Rate of Transcription for A, B, and C & 216 \\
+$\alpha_w$ & Rate of Transcription for W & Sweep from 216 \\
+$\alpha_x$ & Rate of Transcription for X & Sweep from 216 \\
+$\alpha_y$ & Rate of Transcription for Y & Sweep from 216 \\
+$\alpha_z$ & Rate of Transcription for Z & Sweep from 216 \\
+$\kappa$ & Maximal C Transcription in the Presence of Saturating Concentration of Autoinducer & 20 \\
+$k_{deg}$ & mRNA Degradation Rate & 1 \\
+$\beta_i$ & Ratio of mRNA to Protein Lifetime & 2 \\
+$k_{s0}$ & Degradation Rate of Autoinducer & 1 \\
+$k_{s1}$ & Production Rate of Autoinducer & 0.01 \\
+$\eta$ & Autoinducer Diffusion Across the Cell Membrane & 0.4433, 1.367, 2.67 \\
+$k_{diff}$ & Diffusion of Extracellular Autoinducer & 8 \\
+$k_{deg_{Se}}$ & Degradation Rate of Extracellular Autoinducer & 2 \\
+$Q$ & Strength of Quorum Sensing & 0.4, 0.63, 0.8 \\
+$n$ & Hill Coefficient & 2 \\
+\hline
+\end{tabular}
+\caption{Model variables and parameters descriptions and inital values. *Initial value inside this range chosen randomly for each cell.}
+\end{table}
+
+
+
+
+
+\pagebreak
+
 \section*{Phase1 - Paper Model - Equations}
 
 \subsection*{mRNA Equations}
@@ -26,6 +75,8 @@
 \frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_i - S_e) \\
 \frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
 \end{align*}
+In python scripts, extracellular autoinducer is calculated using steady state assumptions:
+$S_e &= \overline{S_i} \cdot Q$
 
 \pagebreak
 
@@ -52,6 +103,8 @@
 \frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_i - S_e) \\
 \frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
 \end{align*}
+In python scripts, extracellular autoinducer is calculated using steady state assumptions:
+$S_e &= \overline{S_i} \cdot Q$
 
 \pagebreak
 
@@ -77,6 +130,8 @@
 \frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_i - S_e) \\
 \frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
 \end{align*}
+In python scripts, extracellular autoinducer is calculated using steady state assumptions:
+$S_e &= \overline{S_i} \cdot Q$
 
 \pagebreak
 
@@ -103,6 +158,8 @@
 \frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_i - S_e) \\
 \frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
 \end{align*}
+In python scripts, extracellular autoinducer is calculated using steady state assumptions:
+$S_e &= \overline{S_i} \cdot Q$
 
 \pagebreak
 
@@ -129,6 +186,8 @@
 \frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_i - S_e) \\
 \frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
 \end{align*}
+In python scripts, extracellular autoinducer is calculated using steady state assumptions:
+$S_e &= \overline{S_i} \cdot Q$
 
 \pagebreak
 
@@ -161,5 +220,26 @@
 \frac{dS_i}{dt} &= -k_{s0} \cdot S_i + k_{s1} \cdot A_i + \eta \cdot (S_i - S_e) \\
 \frac{dS_e}{dt} &= k_{diff} \cdot (\overline{S_i} - S_e) - k_{deg_{Se}} \cdot S_e \\
 \end{align*}
+In python scripts, extracellular autoinducer is calculated using steady state assumptions:
+$S_e &= \overline{S_i} \cdot Q$
+
+\pagebreak
+
+\section*{Quantification Metrics}
+
+\subsection*{Average Amplitude}
+Find all points where $ \frac{db_i}{dt} = 0$ and get the value of \textit{$b_i$} in each cell. 
+
+
+Calculate the average amplitude at that time point and add to a list. 
+
+
+Take the average of the list to find the average amplitude of all cells across all time points. 
+
+\subsection*{Synchronization Metric}
+At each time point where a derivative is taken, find the variance in \textit{$b_i$} across all ten cells. 
+
+
+Average of variances at each time point is synchronization score. Lower score means more synchronization (lower variance between cells at any given time point). 
 
 \end{document}
