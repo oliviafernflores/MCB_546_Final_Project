@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-df = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase2a_sydney/phase_2a_sydney_parameter_scan/alpha_x_scan_summary_metrics.csv")
+df = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase2a_sydney/phase2a_sydney_parameter_scan/alpha_x_scan_summary_metrics.csv")
 
 df['FoldChange'] = df['alpha_x'] / 216.0
 

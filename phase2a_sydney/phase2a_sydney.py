@@ -11,7 +11,7 @@ random.seed(42)
 N = 10
 n = 2
 alpha = 216
-alpha_x = 0.01
+alpha_x = 216
 kappa = 20
 ks0 = 1
 ks1 = 0.01
@@ -55,7 +55,7 @@ def repressilator_system(t, y, Q):
         eta = {0.4: 0.4433, 0.63: 1.1367}.get(Q, 2.67)
         dSi = -ks0 * Si[i] + ks1 * Ai[i] + eta * (Se - Si[i])
         
-        dxi = alpha_x / (1 + Ai[i] ** n) - xi[i]
+        dxi = (alpha_x * Ai[i] ** n) / (1 + Ai[i] ** n) - xi[i]
         dXi = beta_i * (xi[i] - Xi[i])
 
         dydt[idx(i, 0)] = dAi

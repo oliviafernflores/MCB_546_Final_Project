@@ -11,7 +11,7 @@ random.seed(42)
 N = 10
 n = 2
 alpha = 216
-alpha_z = 0.01
+alpha_z = 216
 alpha_w = 0.01
 alpha_x = 0.01
 alpha_y = 0.01
@@ -65,10 +65,10 @@ def repressilator_system(t, y, Q):
         dBi = beta_i * (bi[i] - Bi[i])
         dCi = beta_i * (ci[i] - Ci[i])
 
-        dzi = alpha_z / (1 + Bi[i] ** n) - zi[i]
-        dwi = alpha_w / (1 + Ai[i] ** n) - wi[i]
-        dxi = alpha_x / (1 + Ai[i] ** n) - xi[i]
-        dyi = alpha_y / (1 + Bi[i] ** n) - yi[i]
+        dzi = (alpha_z * Bi[i] ** n)/ (1 + Bi[i] ** n) - zi[i]
+        dwi = (alpha_w * Ai[i] ** n)/ (1 + Ai[i] ** n) - wi[i]
+        dxi = (alpha_x * Ai[i] ** n)/ (1 + Ai[i] ** n) - xi[i]
+        dyi = (alpha_y * Bi[i] ** n)/ (1 + Bi[i] ** n) - yi[i]
 
         dZi = beta_i * (zi[i] - Zi[i])
         dWi = beta_i * (wi[i] - Wi[i])

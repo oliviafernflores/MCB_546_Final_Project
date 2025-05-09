@@ -21,10 +21,10 @@ t_span = (0, 600)
 t_eval = np.linspace(*t_span, 6000)
 
 alpha_w_base = 216
-fold_changes = [1/16, 1/8, 1/4, 1/2, 1, 2, 4, 8, 16]
+fold_changes = [1/256, 1/128, 1/64, 1/32, 1/16, 1/8, 1/4, 1/2, 1, 2, 4, 8, 16]
 alpha_w_values = [alpha_w_base * fc for fc in fold_changes]
-cmap = plt.get_cmap("tab10")
-colors = cmap(np.linspace(0, 1, len(alpha_w_values)))
+cmap = plt.get_cmap("tab20")
+colors = cmap(np.linspace(0, 1, 13))
 
 def idx(i, offset):
     return i * 9 + offset
@@ -61,7 +61,7 @@ def repressilator_system(t, y, Q, alpha_w_val):
         eta = {0.4: 0.4433, 0.63: 1.1367}.get(Q, 2.67)
         dSi = -ks0 * Si[i] + ks1 * Ai[i] + eta * (Se - Si[i])
         
-        dwi = alpha_w_val / (1 + Ai[i] ** n) - wi[i]
+        dwi = (alpha_w_val * Ai[i] ** n) / (1 + Ai[i] ** n) - wi[i]
         dWi = beta_i * (wi[i] - Wi[i])
 
         dydt[idx(i, 0)] = dAi

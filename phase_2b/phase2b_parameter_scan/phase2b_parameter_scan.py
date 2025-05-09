@@ -26,9 +26,8 @@ Q_values = [0.4, 0.63, 0.8]
 t_span = (0, 600)
 t_eval = np.linspace(*t_span, 6000)
 
-cmap = plt.get_cmap("tab10")
-colors = cmap(np.linspace(0, 1, 9))
-print(cmap)
+cmap = plt.get_cmap("tab20")
+colors = cmap(np.linspace(0, 1, 13))
 
 combined_data = {}
 
@@ -74,10 +73,10 @@ def repressilator_system(t, y, Q):
         dBi = beta_i * (bi[i] - Bi[i])
         dCi = beta_i * (ci[i] - Ci[i])
 
-        dzi = alpha_z / (1 + Bi[i] ** n) - zi[i]
-        dwi = alpha_w / (1 + Ai[i] ** n) - wi[i]
-        dxi = alpha_x / (1 + Ai[i] ** n) - xi[i]
-        dyi = alpha_y / (1 + Bi[i] ** n) - yi[i]
+        dzi = (alpha_z * Bi[i] ** n)/ (1 + Bi[i] ** n) - zi[i]
+        dwi = (alpha_w * Ai[i] ** n)/ (1 + Ai[i] ** n) - wi[i]
+        dxi = (alpha_x * Ai[i] ** n)/ (1 + Ai[i] ** n) - xi[i]
+        dyi = (alpha_y * Bi[i] ** n)/ (1 + Bi[i] ** n) - yi[i]
 
         dZi = beta_i * (zi[i] - Zi[i])
         dWi = beta_i * (wi[i] - Wi[i])
@@ -186,7 +185,7 @@ output_dir = "scan_outputs"
 os.makedirs(output_dir, exist_ok=True)
 results = []
 
-fold_changes = [1/16, 1/8, 1/4, 1/2, 1, 2, 4, 8, 16]
+fold_changes = [1/256, 1/128, 1/64, 1/32, 1/16, 1/8, 1/4, 1/2, 1, 2, 4, 8, 16]
 alpha_params = ['alpha_z', 'alpha_w', 'alpha_x', 'alpha_y']
 base_alpha = 216
 

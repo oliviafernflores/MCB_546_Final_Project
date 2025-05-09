@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-df_olivia = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase_2a_olivia/phase_2a_olivia_parameter_scan/alpha_z_scan_summary_metrics.csv")
-df_sydney = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase2a_sydney/phase_2a_sydney_parameter_scan/alpha_x_scan_summary_metrics.csv")
+df_olivia = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase2a_olivia/phase2a_olivia_parameter_scan/alpha_z_scan_summary_metrics.csv")
+df_sydney = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase2a_sydney/phase2a_sydney_parameter_scan/alpha_x_scan_summary_metrics.csv")
 df_adriana = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase2a_adriana/phase2a_adriana_parameter_scan/alpha_w_scan_summary_metrics.csv")
 df_sean = pd.read_csv("/Users/olivia/Documents/Spring 2025/MCB_546/MCB_546_Final_Project/phase2a_sean/phase2a_sean_parameter_scan/alpha_y_scan_summary_metrics.csv")
 
